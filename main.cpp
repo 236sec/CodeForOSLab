@@ -1,7 +1,9 @@
 #include <iostream>
 using namespace std;
 
-int myglobe = 5;
+int g1 = 5;
+int g2 = 2;
+int g3 = 1;
 
 int myfunc(int a) {
     int b = 0;
@@ -10,10 +12,14 @@ int myfunc(int a) {
     }
     int* k = (int *)malloc(sizeof(int));
     cout << "Call Function n = " << a << endl;
-    cout << "Global g"<< a << " : " << &myglobe << endl;
+    cout << "Global g1 "<< a << " : " << &g1 << endl;
+    cout << "Global g2 "<< a << " : " << &g2 << endl;
+    cout << "Global g3 "<< a << " : " << &g3 << endl;
     cout << "Local l"<< a << " : " << &b << endl;
     cout << "New Malloc m"<< a << ": " << k << endl;
-    return myfunc(a+1);
+    myfunc(a+1);
+    free(k);
+    return 1;
 }
 
 int main() {
